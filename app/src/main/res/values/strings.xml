@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">PhimHay</string>
+    <string name="default_notification_channel">default_channel</string>
+    <string name="default_foreground_notification_channel">default_foreground_notification_channel</string>
+    <string name="notification_channel_description">Notification</string>
+    <string name="notification_channel_name">Notification</string>
+    <string name="favorite">Favorite</string>
+    <string name="explore">Explore</string>
+    <string name="home">Home</string>
+    <string name="minutes">%s Minute</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="overview">Overview</string>
+    <string name="genres">Genres</string>
+    <string name="review">Review</string>
+    <string name="cast">Cast</string>
+    <string name="similar">Similar</string>
+    <string name="average_rating">Average rating: %s</string>
+    <string name="number_of_reviews">Number of reviews: %s</string>
+    <string name="cast_name">Henry Hill</string>
+    <string name="real_name">Ray Liotta</string>
 </resources>

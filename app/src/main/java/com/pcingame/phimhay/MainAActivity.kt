@@ -3,16 +3,16 @@ package com.pcingame.phimhay
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.pcingame.phimhay.databinding.ActivityMainBinding
+import com.pcingame.phimhay.databinding.ActivityMainnBinding
 
-class MainActivity : AppCompatActivity() {
+class MainAActivity : AppCompatActivity() {
 
     private var layoutManager: GridLayoutManager? = null
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainnBinding
     private var adapter: SimpleAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainnBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         layoutManager = GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false)
