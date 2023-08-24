@@ -47,7 +47,9 @@ class DetailFragment :
             viewBD.textMovieName.text = movie.title
             viewBD.textDateRelease.text = movie.releaseDate
             viewBD.textRuntime.text = getString(R.string.minutes, movie.runtime.toString())
-            viewBD.textGenre.text = movie.genre
+            viewBD.textHasAdultContent.text =
+                if (movie.adult == true) getString(R.string.yes) else getString(R.string.no)
+            viewBD.tvVoteAverage.text = movie.voteAverage.toString().substring(0,3)
             setUpViewPager(movie)
             setUpTabLayout()
         }

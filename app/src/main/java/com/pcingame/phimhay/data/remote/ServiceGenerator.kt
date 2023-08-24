@@ -46,7 +46,7 @@ object ServiceGenerator {
      *
      * @param interceptors [List] of [Interceptor] to attach to the expected client
      */
-    internal fun buildOkHttpClient(interceptors: List<Interceptor>): OkHttpClient {
+    private fun buildOkHttpClient(interceptors: List<Interceptor>): OkHttpClient {
         val logInterceptor = HttpLoggingInterceptor().apply {
             if (BuildConfig.DEBUG) {
                 setLevel(HttpLoggingInterceptor.Level.BODY)

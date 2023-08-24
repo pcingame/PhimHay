@@ -3,8 +3,14 @@ package com.pcingame.phimhay.data.repository
 import com.pcingame.phimhay.data.entity.MovieEntity
 import com.pcingame.phimhay.data.local.AppDatabase
 import com.pcingame.phimhay.data.remote.MovieApi
+import com.pcingame.phimhay.data.remote.response.CastRes
+import com.pcingame.phimhay.data.remote.response.GetReviewMovieResponse
+import com.pcingame.phimhay.data.remote.response.GetSimilarMovieResponse
 import com.pcingame.phimhay.data.remote.response.MovieResponse
+import com.pcingame.phimhay.domain.model.Cast
 import com.pcingame.phimhay.domain.model.Movie
+import com.pcingame.phimhay.domain.model.MovieReview
+import com.pcingame.phimhay.domain.model.MovieSimilar
 import com.pcingame.phimhay.domain.repository.MovieRepository
 
 class MovieRepositoryImpl(
@@ -46,5 +52,21 @@ class MovieRepositoryImpl(
         return kotlin.runCatching {
             database.movieDao().getAll().map(MovieEntity::toModel)
         }.getOrNull() ?: emptyList()
+    }
+
+    override suspend fun getMovieCast(movieId: String): List<Cast> {
+        return movieApi.getMovieCredits(movieId).cast?.map(CastRes::toModel) ?: emptyList()
+    }
+
+    override suspend fun getSimilarMovie(movieId: String, page: Int): List<MovieSimilar> {
+        return movieApi.getSimilarMovie(
+            movieId,
+            page
+        ).results?.map(GetSimilarMovieResponse::toModel) ?: emptyList()
+    }
+
+    override suspend fun getReviewMovie(movieId: String, page: Int): List<MovieReview> {
+        return movieApi.getReviewMovie(movieId, page).results?.map(GetReviewMovieResponse::toModel)
+            ?: emptyList()
     }
 }

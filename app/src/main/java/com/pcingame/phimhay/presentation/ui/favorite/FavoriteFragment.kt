@@ -30,6 +30,7 @@ class FavoriteFragment :
                 navigate(R.id.detailFragment, bundle)
             }
         }
+
     }
 
     override fun initData() {

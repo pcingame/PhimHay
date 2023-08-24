@@ -18,4 +18,8 @@
     <string name="number_of_reviews">Number of reviews: %s</string>
     <string name="cast_name">Henry Hill</string>
     <string name="real_name">Ray Liotta</string>
+    <string name="review_time">December 16, 2022</string>
+    <string name="review_name">mooney240</string>
+    <string name="point">8.0</string>
+    <string name="no_review">We don\'t have any reviews for <b>%s</b>. Would you like to write one ?</string>
 </resources>

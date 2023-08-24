@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import com.pcingame.phimhay.common.extension.ViewInflater
+import com.pcingame.phimhay.common.extension.click
 
 /**
  * Simple List Adapter
@@ -51,6 +52,33 @@ open class SimpleListAdapter<ItemBD : ViewBinding, T : Any>(
 
             override fun onHandleItemClick(mainItem: T) {
                 itemBD.onItemClick(mainItem, absoluteAdapterPosition)
+            }
+        }
+    }
+}
+
+open class SimpleBDAdapter<ItemBD : ViewBinding, T : Any>(
+    private val onInflateItemBD: (LayoutInflater, ViewGroup?, Boolean) -> ItemBD,
+    var onBind: (ItemBD, T, Int) -> Unit = { _, _, _ -> },
+) : BaseListAdapter<T, BaseViewHolder<T>>() {
+    var delayClick = 500
+    var onItemClick: (ItemBD, T, Int) -> Unit = { _, _, _ -> }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<T> {
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val itemBD = onInflateItemBD(layoutInflater, parent, false)
+        return object : BaseViewHolder<T>(itemBD.root) {
+            init {
+                itemView.click(delayClick) {
+                    itemData?.let {
+                        onItemClick(itemBD, it, absoluteAdapterPosition)
+                    }
+                }
+            }
+
+            override fun bindData(itemData: T) {
+                super.bindData(itemData)
+                onBind(itemBD, itemData, absoluteAdapterPosition)
             }
         }
     }
