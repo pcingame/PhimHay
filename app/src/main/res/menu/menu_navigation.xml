@@ -15,4 +15,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_baseline_movie_filter_24"
         android:title="@string/favorite" />
+
+    <item
+        android:id="@+id/favoriteSearch"
+        android:enabled="true"
+        android:icon="@drawable/baseline_search_24"
+        android:title="@string/search" />
 </menu>

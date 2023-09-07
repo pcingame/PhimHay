@@ -1,5 +1,6 @@
 package com.pcingame.phimhay.presentation.ui.main
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -8,6 +9,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.pcingame.phimhay.R
 import com.pcingame.phimhay.base.BaseActivity
 import com.pcingame.phimhay.databinding.ActivityMainBinding
+import com.pcingame.phimhay.presentation.ui.widget.BottomNavigationBehavior
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
 
@@ -38,6 +40,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             val isVisible = destination.id in mainFragmentIdSet
             viewBD.bottomNavigation.isVisible = isVisible
         }
+        //viewBD.bottomNavigation.setOnNavigationItemSelectedListener()
+
+        val layoutParams = viewBD.bottomNavigation.layoutParams as CoordinatorLayout.LayoutParams
+        layoutParams.behavior = BottomNavigationBehavior()
         viewBD.bottomNavigation.selectedItemId = R.id.homeFragment
     }
 

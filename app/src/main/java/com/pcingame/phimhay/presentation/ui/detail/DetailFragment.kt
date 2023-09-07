@@ -43,8 +43,8 @@ class DetailFragment :
     override fun observeData() {
         viewModel.detailMovie.observe(viewLifecycleOwner) { movie ->
             viewBD.imageBackdrop.load(movie.getFullBackdropPath())
-            viewBD.imageMoviePoster.load(movie.getFullPosterPath())
-            viewBD.textMovieName.text = movie.title
+            //viewBD.imageMoviePoster.load(movie.getFullPosterPath())
+            //viewBD.textMovieName.text = movie.title
             viewBD.textDateRelease.text = movie.releaseDate
             viewBD.textRuntime.text = getString(R.string.minutes, movie.runtime.toString())
             viewBD.textHasAdultContent.text =

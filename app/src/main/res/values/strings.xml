@@ -4,6 +4,7 @@
     <string name="notification_channel_description">Notification</string>
     <string name="notification_channel_name">Notification</string>
     <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
     <string name="explore">Explore</string>
     <string name="home">Home</string>
     <string name="minutes">%s Minute</string>
